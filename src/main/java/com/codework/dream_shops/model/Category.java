@@ -17,6 +17,8 @@ public class Category {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category") //This attribute specifies the field in the Product entity that owns the relationship.
+    //mappedBy indicates that the Product entity is the "owning side" of the relationship, meaning that the Product
+    // entity has a reference (usually via a foreign key) to the Category.
     private List<Product> products;
 }
