@@ -1,13 +1,12 @@
 package com.codework.dream_shops.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -21,4 +20,7 @@ public class Category {
     //mappedBy indicates that the Product entity is the "owning side" of the relationship, meaning that the Product
     // entity has a reference (usually via a foreign key) to the Category.
     private List<Product> products;
+
+    public Category(String name) {
+    }
 }

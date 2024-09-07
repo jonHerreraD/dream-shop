@@ -1,16 +1,14 @@
 package com.codework.dream_shops.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Product {
     @Id
@@ -45,4 +43,19 @@ public class Product {
     // from the list), it will be automatically deleted from the database. This is useful for preventing "orphan"
     // records that are no longer needed or connected to a parent entity.
     private List<Image> images;
+
+
+
+
+
+    //Constructor needed for createProduct method in ProductService class
+    //Now we can remove AllArgsConstructor annotation
+    public Product(String name, String brand, BigDecimal price, int inventory, String description, Category category){
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.inventory = inventory;
+        this.description = description;
+        this.category = category;
+    }
 }
